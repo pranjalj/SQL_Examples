@@ -1,0 +1,1 @@
+SELECT d.dept_name, dm.change_times as cnt FROM departments as d INNER JOIN (SELECT dept_no, (COUNT(dept_no) - 1)as change_times FROM dept_manager GROUP BY dept_no HAVING change_times > 1) as dm ON d.dept_no = dm.dept_no ORDER BY d.dept_name;
